@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyena Film Complet en Français</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #1c1c1c;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: left;
+            position: relative;
+        }
+
+        .background-image {
+            width: 100%;
+            height: 250px;
+            background-image: url('https://archive.org/download/it-rr-l-r-diyg-hd-1/itRrL-rDIYg-HD%20%281%29.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .poster {
+            position: absolute;
+            top: 150px;
+            left: 20px;
+            width: 140px;
+            height: 190px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .content {
+            position: relative;
+            margin-top: 75px;
+            padding: 20px;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .type {
+            color: #bdbdbd;
+            margin-bottom: 20px;
+        }
+
+        .details {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .synopsis {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        #favorite-button {
+            position: absolute;
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 12px;
+            cursor: pointer;
+            text-transform: uppercase;
+            top: 260px;
+            right: 5px;
+        }
+
+        #favorite-button:hover {
+            background-color: #cc0000;
+        }
+
+        .watch-button {
+            position: absolute;
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 12px;
+            cursor: pointer;
+            text-transform: uppercase;
+            top: 300px;
+            left: 20px;
+        }
+
+        .watch-button:hover {
+            background-color: #cc0000;
+        }
+
+        #video-player {
+            display: none;
+            width: 100%;
+            height: 250px;
+            margin-top: 0;
+        }
+
+        .content-after-video {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Imagen de fondo -->
+        <div class="background-image" id="background">
+            <button id="favorite-button" onclick="toggleFavorite()">🤍</button>
+        </div>
+
+        <!-- Póster -->
+        <img class="poster" id="poster" src="https://archive.org/download/it-rr-l-r-diyg-hd-1/itRrL-rDIYg-HD%20%281%29.jpg" alt="Poster">
+
+        <!-- Contenido de título y sinopsis -->
+        <div class="content" id="content">
+            <div class="title" id="title">Hyena: Le Meilleurs triller surnaturel basé sur une tragédie oubliée Film Complet en Français</div>
+            <div class="type">Type: Movie | Netflix</div>
+
+            <div class="details">
+                <div class="synopsis" id="synopsis">
+                    Sinopsis: 
+                    Dans 7 Below, un Groupe d'étrangers se retrouve bloqué dans une maison isolée, apparemment ordinaire , mais en réalité prise dans une boucles temporelle. ill y a exactement un siècle, une tragédie effroyable s'est Produite entre ses murs. Aujourd’hui, l'histoire semble se repeter. 
+Alors que les phénomènes Paranormaux se multiplient et  que la tension monte, les suivants comprennent qu'ils ne sont pa seuls... .
+                </div>
+            </div>
+        </div>
+
+        <!-- Botón "regarder maintenant  " -->
+        <button class="watch-button" id="watch-button" onclick="playEmbedVideo()">regarder maintenant  </button>
+
+        <!-- Reproductor de video embed -->
+        <iframe 
+            id="video-player" 
+            src="" 
+            frameborder="0" 
+            allowfullscreen>
+        </iframe>
+
+        <!-- Contenido después del video -->
+        <div class="content-after-video" id="content-after-video">
+            <div class="title"> Hyena: Film Complet en français</div>
+            <div class="type">Type: Movie | Netflix</div>
+
+            <div class="details">
+                <div class="synopsis">
+                    Sinopsis: 
+                    Dans 7 Below, un Groupe d'étrangers se retrouve bloqué dans une maison isolée, apparemment ordinaire , mais en réalité prise dans une boucles temporelle. ill y a exactement un siècle, une tragédie effroyable s'est Produite entre ses murs. Aujourd’hui, l'histoire semble se repeter. 
+Alors que les phénomènes Paranormaux se multiplient et  que la tension monte, les suivants comprennent qu'ils ne sont pa seuls... .
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Información de la película actual
+        const movie = {
+            id: "micro",
+            title: "microondas",
+            imageUrl: "https://archive.org/download/it-rr-l-r-diyg-hd-1/itRrL-rDIYg-HD%20%281%29.jpg",
+            link: "go:p1" // Ruta de esta misma página
+        };
+
+        // Reproducir video
+        function playEmbedVideo() {
+            document.getElementById('background').style.display = 'none';
+            document.getElementById('poster').style.display = 'none';
+            document.getElementById('watch-button').style.display = 'none';
+
+            const videoPlayer = document.getElementById('video-player');
+            videoPlayer.src = "https://archive.org/download/hyena-film-completes-en-francais/Hyena%20Film%20Compl%C3%A8tes%20en%20fran%C3%A7ais%20.mp4";
+            videoPlayer.style.display = 'block';
+
+            document.getElementById('content-after-video').style.display = 'block';
+            document.getElementById('content').style.display = 'none';
+        }
+
+        // Manejo de favoritos
+function toggleFavorite() {
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    const isMovieAlreadyFavorited = favorites.some(fav => fav.id === movie.id);
+
+    const favoriteButton = document.getElementById('favorite-button');
+
+    if (isMovieAlreadyFavorited) {
+        favorites = favorites.filter(fav => fav.id !== movie.id);
+        favoriteButton.textContent = "🤍"; // Corazón blanco
+        alert("film supprimé de vos favoris"); 
+    } else {
+        favorites.push(movie);
+        favoriteButton.textContent = "💓"; // Corazón rojo
+        alert("film ajouté à vos favoris"); 
+    }
+
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+}
+
+// Inicializar el botón de favoritos
+function initFavoriteButton() {
+    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    const isMovieAlreadyFavorited = favorites.some(fav => fav.id === movie.id);
+
+    const favoriteButton = document.getElementById('favorite-button');
+    favoriteButton.textContent = isMovieAlreadyFavorited ? "💓" : "🤍"; // Corazón rojo o blanco
+}
+
+
+        window.onload = initFavoriteButton;
+    </script>
+</body>
+</html>
